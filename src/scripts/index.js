@@ -88,17 +88,16 @@ function renderBlockGame(block) {
         if (level !== 0) {
             app.textContent = '';
             history.pushState(state, titleHref, levelI);
-            //renderLevel(document.querySelector('.app'));
+            renderLevel(document.querySelector('.app'));
             console.log(localStorage);
         }
     });
 
 }
 
-
-// function renderLevel (block) {
-//     const title = document.createElement('h1');
-//     title.textContent = `Уровень ${levelCheck}`;
-//     body.style.backgroundColor = '#999999'
-//     block.appendChild(title);
-// }
+function renderLevel (block) {
+    const title = document.createElement('h1');
+    title.textContent = `Уровень ${levelCheck}`;
+    body.style.backgroundColor = '#999999'
+    block.appendChild(title);
+}
