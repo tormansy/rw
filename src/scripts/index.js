@@ -1,103 +1,79 @@
-let levelCheck = 0;
-const body = document.querySelector('body');
-const state = 'level';
-const titleHref = '';
+const start = document.querySelector('.start_game')
+const cardsAll = document.querySelectorAll('.card')
+const levelID = document.getElementById('levels')
+const startblock = document.querySelector('.app')
+const gameBlock = document.querySelector('.game')
+const cardBlock = document.querySelector('.card_block')
+const restart = document.querySelector('.button_restart')
 
-window.addEventListener('DOMContentLoaded', renderBlockGame(document.querySelector('.app')));
+// eslint-disable-next-line no-octal
+let minute = 00
+// eslint-disable-next-line no-octal
+let second = 00
+let interval
 
-function renderBlockGame(block) {
-    const app = document.querySelector('.app');
-   
-    body.style.backgroundColor = '#004781';
+let levelCheck = 0
+levelID.addEventListener('click', function (event) {
+ let lvlIDpick =
+  [...document.querySelectorAll('.level')].indexOf(event.target) + 1
+ levelCheck = lvlIDpick
+})
 
-    const blockGame = document.createElement('div');
-    blockGame.classList.add('box-level');
+gameBlock.classList.add('game_hidden')
+cardBlock.classList.add('card_block_hidden')
 
-    const title = document.createElement('h1');
-    title.classList.add('title_level');
-    title.textContent = 'Выбери сложность';
+start.addEventListener('click', () => {
+ if (levelCheck !== 0) {
+  startblock.classList.add('app_hidden')
+  gameBlock.classList.remove('game_hidden')
+  cardBlock.classList.remove('card_block_hidden')
 
-    const levels = document.createElement('div');
-    levels.classList.add('levels');
-    levels.id = 'levels';
+  setTimeout(() => {
+   cardsAll.forEach((card) => {
+    card.classList.add('back')
+   })
+  }, 5000)
+ }
 
-    const level1 = document.createElement('input');
-    level1.classList.add('level1');
-    level1.type = 'radio';
-    level1.id = 'level1';
-    level1.name = 'level';
+ interval = setInterval(startTimer, 1000)
+})
 
-    const label1 = document.createElement('label');
-    label1.classList.add('level');
-    label1.textContent = '1';
+const minuteBlock = document.querySelector('.minute')
+const secondBlock = document.querySelector('.second')
 
-    const level2 = document.createElement('input');
-    level2.classList.add('level2');
-    level2.type = 'radio';
-    level2.id = 'level2';
-    level2.name = 'level';
-
-    const label2 = document.createElement('label');
-    label2.classList.add('level');
-    label2.textContent = '2';
-
-
-    const level3 = document.createElement('input');
-    level3.classList.add('level3');
-    level3.type = 'radio';
-    level3.id = 'level3';
-    level3.name = 'level';
-
-    const label3 = document.createElement('label');
-    label3.classList.add('level');
-    label3.textContent = '3';
-
-    const start = document.createElement('button');
-    start.classList.add('start-game');
-    start.textContent = 'Старт'
-
-    block.appendChild(blockGame);
-
-    blockGame.appendChild(title)
-    blockGame.appendChild(levels)
-
-    levels.appendChild(level1);
-    levels.appendChild(label1);
-
-    levels.appendChild(level2);
-    levels.appendChild(label2);
-
-    levels.appendChild(level3);
-    levels.appendChild(label3);
-
-    blockGame.appendChild(start);
-
-    const levelID = document.getElementById('levels')
-    levelID.addEventListener("click", function (event) {
-        let lvlIDpick = ([...document.querySelectorAll('.level')].indexOf(event.target)) + 1;
-        levelCheck = lvlIDpick;
-
-    });
-
-    start.addEventListener('click', (event) => {
-        const levelI = `level${levelCheck}.html`;
-        let levelSave = localStorage.setItem('lvl', JSON.stringify(levelCheck));
-        const level = JSON.stringify(levelCheck);
-        console.log(level);
-
-        if (level !== 0) {
-            app.textContent = '';
-            history.pushState(state, titleHref, levelI);
-            renderLevel(document.querySelector('.app'));
-            console.log(localStorage);
-        }
-    });
-
+function startTimer() {
+ second++
+ if (second < 9) {
+  secondBlock.innerHTML = '0' + second
+ }
+ if (second > 9) {
+  secondBlock.innerHTML = second
+ }
+ if (second > 59) {
+  minute++
+  minuteBlock.innerHTML = '0' + minute
+  second = 0
+  secondBlock.innerHTML = '0' + second
+ }
 }
 
-function renderLevel (block) {
-    const title = document.createElement('h1');
-    title.textContent = `Уровень ${levelCheck}`;
-    body.style.backgroundColor = '#999999'
-    block.appendChild(title);
-}
+restart.addEventListener('click', () => {
+ clearInterval(interval)
+
+ // eslint-disable-next-line no-octal
+ minuteBlock.textContent = '00'
+ // eslint-disable-next-line no-octal
+ secondBlock.textContent = '00'
+ // eslint-disable-next-line no-octal
+ minute = 00
+ // eslint-disable-next-line no-octal
+ second = 00
+
+ cardsAll.forEach((card) => {
+  card.classList.remove('back')
+ })
+
+ startblock.classList.remove('app_hidden')
+ gameBlock.classList.add('game_hidden')
+ cardBlock.classList.add('card_block_hidden')
+})

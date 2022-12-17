@@ -1,148 +1,375 @@
-
 font {
-    color: white;
-}
-.box-level {
-    width: 480px;
-    height: 459px;
-    left: 272px;
-    top: 158px;
-    
-    position: absolute;
-
-    background: #C2F5FF;
-    border-radius: 12px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+ color: white;
 }
 
-
-.levels{
-    display: flex;
-    gap: 24px;
-    align-items: center;
+.box_level {
+ width: 480px;
+ height: 459px;
+ left: 272px;
+ top: 158px;
+ position: absolute;
+ background: #c2f5ff;
+ border-radius: 12px;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
 }
 
-.title_level{
-    color:#004781;
-
-    margin-top: 52px;
-    margin-bottom: 48px;
-    width: 208px;
-    height: 96px;
-    left: 408px;
-    top: 210px;
-
-    font-family: 'PT Sans', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 40px;
-    line-height: 48px;
-    /* or 120% */
-    
-    text-align: center;
-    font-feature-settings: 'pnum' on, 'lnum' on;
+.levels {
+ display: flex;
+ gap: 24px;
+ align-items: center;
 }
+
+.title_level {
+ color: #004781;
+ margin-top: 52px;
+ margin-bottom: 48px;
+ width: 208px;
+ height: 96px;
+ left: 408px;
+ top: 210px;
+ font-family: 'PT Sans', sans-serif;
+ font-style: normal;
+ font-weight: 400;
+ font-size: 40px;
+ line-height: 48px;
+ text-align: center;
+ font-feature-settings: 'pnum' on, 'lnum' on;
+}
+
 .level {
-    color: #0080C1;
- 
-    width: 96px;
-    height: 98px;
-    left: 587px;
-    top: 354px;
-
-    font-family: 'StratosSkyeng';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 64px;
-    line-height: 72px;
-    /* or 112% */
-
-    display: flex;
-    align-items: center;
-    text-align: center;
-}
-.start-game {
-    width: 246px;
-    height: 50px;
-    left: 389px;
-    top: 519px;
-    margin-top: 67px;
-    margin-bottom: 50px;
-    background: #7AC100;
-    border-radius: 12px;
-    color: white;
-    border: 0;
-    font-family: 'PT Sans', sans-serif;
-
-    font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 32px;
-    /* or 133% */
-
-   
-    align-items: center;
-    text-align: center;
-    font-feature-settings: 'pnum' on, 'lnum' on;
+ color: #0080c1;
+ width: 96px;
+ height: 98px;
+ left: 587px;
+ top: 354px;
+ font-style: normal;
+ font-weight: 400;
+ font-size: 64px;
+ line-height: 72px;
+ display: flex;
+ align-items: center;
+ text-align: center;
 }
 
-.start-game:hover {
-    background: #7AC100;
-	color: white;
-	box-shadow: inset 0 0 0 3px #0080C1;
+.start_game {
+ width: 246px;
+ height: 50px;
+ left: 389px;
+ top: 519px;
+ margin-top: 67px;
+ margin-bottom: 50px;
+ background: #7ac100;
+ border-radius: 12px;
+ color: white;
+ border: 0;
+ font-family: 'PT Sans', sans-serif;
+ font-style: normal;
+ font-weight: 400;
+ font-size: 24px;
+ line-height: 32px;
+
+ /* or 133% */
+
+ align-items: center;
+ text-align: center;
+ font-feature-settings: 'pnum' on, 'lnum' on;
 }
 
-input[type="radio"]{
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-
-    
+.start_game:hover {
+ background: #7ac100;
+ color: white;
+ box-shadow: inset 0 0 0 3px #0080c1;
 }
 
-input[type="radio"] + label
-{
-    background: white;
-    color: #0080FF;
-    height: 98px;
-    width: 98px;
-    display:inline-block;
-    padding: 0 0 0 0px;
-    background: #FFFFFF;
-    border-radius: 12px;
-
-    font-family: 'PT Sans', sans-serif;
-    font-weight: 400;
-    font-size: 64px;
-    line-height: 72px;
-    /* or 112% */
-
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
+input[type='radio'] {
+ position: absolute;
+ width: 1px;
+ height: 1px;
+ overflow: hidden;
+ clip: rect(0 0 0 0);
 }
 
-input[type="radio"]:checked + label
-{
-    background: #0080FF;
-    height: 16px;
-    width: 16px;
-    display:inline-block;
-    padding: 0 0 0 0px;
+input[type='radio'] + label {
+ color: #0080ff;
+ height: 98px;
+ width: 98px;
+ padding: 0;
+ background: #fff;
+ border-radius: 12px;
+ font-family: 'PT Sans', sans-serif;
+ font-weight: 400;
+ font-size: 64px;
+ line-height: 72px;
+
+ /* or 112% */
+
+ display: flex;
+ align-items: center;
+ text-align: center;
+ justify-content: center;
 }
 
-label:hover{
-    background: rgba(0,0,0,0);
-	color: #3a7999;
-	box-shadow: inset 0 0 0 3px #3a7999;
+/* stylelint-disable-next-line no-descending-specificity */
+label {
+ background: #0080ff;
+ height: 16px;
+ width: 16px;
+ display: inline-block;
+ padding: 0;
+}
+/* stylelint-disable-next-line no-descending-specificity */
+label:hover {
+ background: rgb(0 0 0 / 0%);
+ color: #3a7999;
+ box-shadow: inset 0 0 0 3px #3a7999;
 }
 
-.box-level_hidden{
-    display: none;
+.timer {
+ display: flex;
+ color: #fff;
+ gap: 5px;
+ width: 115px;
+ height: 72px;
+ align-items: flex-end;
+}
+
+.card_block {
+ display: grid;
+ grid-template-columns: repeat(9, 1fr);
+ grid-gap: 15px;
+ padding-bottom: 49px;
+ padding-left: 15px;
+ padding-right: 15px;
+ width: 1020px;
+}
+
+.panel {
+ display: flex;
+ justify-content: space-between;
+ height: 148px;
+ align-items: center;
+ padding-left: 15px;
+ padding-right: 15px;
+ width: 1000px;
+}
+
+.timer_block {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+
+.time {
+ font-style: normal;
+ font-weight: 400;
+ font-size: 64px;
+ line-height: 72px;
+
+ /* identical to box height, or 112% */
+
+ color: #fff;
+}
+
+.button_restart {
+ align-items: center;
+ text-align: center;
+ font-feature-settings: 'pnum' on, 'lnum' on;
+ justify-content: center;
+ color: #fff;
+ outline: 0;
+ width: 246px;
+ height: 50px;
+ border: none;
+ background: #7ac100;
+ border-radius: 12px;
+ font-weight: 400;
+ font-size: 24px;
+ line-height: 32px;
+ display: flex;
+}
+
+.button_restart:hover {
+ background: #7ac100;
+ color: white;
+ box-shadow: inset 0 0 0 3px #0080c1;
+}
+
+.card {
+ width: 95px;
+ height: 133px;
+}
+
+.card:hover {
+ color: white;
+ box-shadow: inset 0 0 0 3px #0080c1;
+}
+
+.cards {
+ display: flex;
+ flex-direction: column;
+ gap: 15px;
+}
+
+.card_a1 {
+ background-image: url('../img/тузпики.png');
+}
+
+.card_a2 {
+ background-image: url('../img/тузчерви.png');
+}
+
+.card_a3 {
+ background-image: url('../img/тузбубны.png');
+}
+
+.card_a4 {
+ background-image: url('../img/тузкрести.png');
+}
+
+.card_k1 {
+ background-image: url('../img/корольпики.png');
+}
+
+.card_k2 {
+ background-image: url('../img/корольчерви.png');
+}
+
+.card_k3 {
+ background-image: url('../img/корольбубны.png');
+}
+
+.card_k4 {
+ background-image: url('../img/королькрести.png');
+}
+
+.card_q1 {
+ background-image: url('../img/дамапики.png');
+}
+
+.card_q2 {
+ background-image: url('../img/дамачерви.png');
+}
+
+.card_q3 {
+ background-image: url('../img/дамабубны.png');
+}
+
+.card_q4 {
+ background-image: url('../img/дамакрести.png');
+}
+
+.card_j1 {
+ background-image: url('../img/валетпики.png');
+}
+
+.card_j2 {
+ background-image: url('../img/валетчерви.png');
+}
+
+.card_j3 {
+ background-image: url('../img/валетбубны.png');
+}
+
+.card_j4 {
+ background-image: url('../img/валеткрести.png');
+}
+
+.card10_1 {
+ background-image: url('../img/10пики.png');
+}
+
+.card10_2 {
+ background-image: url('../img/10черви.png');
+}
+
+.card10_3 {
+ background-image: url('../img/10бубны.png');
+}
+
+.card10_4 {
+ background-image: url('../img/10крести.png');
+}
+
+.card9_1 {
+ background-image: url('../img/9пики.png');
+}
+
+.card9_2 {
+ background-image: url('../img/9черви.png');
+}
+
+.card9_3 {
+ background-image: url('../img/9бубны.png');
+}
+
+.card9_4 {
+ background-image: url('../img/9крести.png');
+}
+
+.card8_1 {
+ background-image: url('../img/8пики.png');
+}
+
+.card8_2 {
+ background-image: url('../img/8черви.png');
+}
+
+.card8_3 {
+ background-image: url('../img/8бубны.png');
+}
+
+.card8_4 {
+ background-image: url('../img/8крести.png');
+}
+
+.card7_1 {
+ background-image: url('../img/7пики.png');
+}
+
+.card7_2 {
+ background-image: url('../img/7черви.png');
+}
+
+.card7_3 {
+ background-image: url('../img/7бубны.png');
+}
+
+.card7_4 {
+ background-image: url('../img/7крести.png');
+}
+
+.card6_1 {
+ background-image: url('../img/6пики.png');
+}
+
+.card6_2 {
+ background-image: url('../img/6черви.png');
+}
+
+.card6_3 {
+ background-image: url('../img/6бубны.png');
+}
+
+.card6_4 {
+ background-image: url('../img/6крести.png');
+}
+
+.back {
+ background-image: url('../img/рубашка.png');
+ width: 95px;
+ height: 133px;
+}
+
+.game_hidden {
+ display: none;
+}
+
+.card_block_hidden {
+ display: none;
+}
+
+.app_hidden {
+ display: none;
 }
