@@ -1,1 +1,6 @@
+<<<<<<< init-npm-moduls
 node_modules/
+.husky/
+=======
+node_modules/
+>>>>>>> master
