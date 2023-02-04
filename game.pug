@@ -5,9 +5,16 @@ html(lang="en")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title Document
-        link(rel="stylesheet", href="./src/css/style.css")  
+        link(rel="stylesheet", href="./src/scripts/css/styles.css", type="text/css")  
     body
         div(class="app")
+            div(class="finish_block")
+                div(class="title_icon")
+                div(class="title_finish")
+                div(class="finish_time")
+                    div(class="time_title") Затраченное время:
+                    div(class="total_time")
+                button(class="button_restart2") Играть снова
             div(class="box_level")
                 h1.title_level Выбери сложность
                 div(class ="levels" id="levels")
@@ -22,12 +29,7 @@ html(lang="en")
             div.panel
                 div.timer
                     div(class="timer_block")
-                        div.title min
-                        div(class="time minute") 00
-                    div.time . 
-                    div(class="timer_block")
-                        div.title sec
-                        div(class="time second") 00    
+                        time 00:00
                 div.button-block
                     button.button_restart Начать заново
         div(class="card_block")
