@@ -5,10 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./src/css/style.css">
+    <link rel="stylesheet" href="./src/scripts/css/styles.css" type="text/css">
   </head>
   <body>
     <div class="app">
+      <div class="finish_block">
+        <div class="title_icon"></div>
+        <div class="title_finish"></div>
+        <div class="finish_time">
+          <div class="time_title">Затраченное время:</div>
+          <div class="total_time"></div>
+        </div>
+        <button class="button_restart2">Играть снова</button>
+      </div>
       <div class="box_level">
         <h1 class="title_level">Выбери сложность</h1>
         <div class="levels" id="levels">
@@ -26,13 +35,7 @@
       <div class="panel">
         <div class="timer">
           <div class="timer_block">
-            <div class="title">min</div>
-            <div class="time minute">00</div>
-          </div>
-          <div class="time">. </div>
-          <div class="timer_block">
-            <div class="title">sec</div>
-            <div class="time second">00    </div>
+            <time>00:00</time>
           </div>
         </div>
         <div class="button-block">
