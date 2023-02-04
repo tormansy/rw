@@ -180,12 +180,10 @@ function cardCheck() {
 
     if (firstCard === null) {
      firstCard = card
-    } else {
-     if (card !== firstCard) {
+    } else if (card !== firstCard) {
       secondCard = card
-     }
     }
-    if (firstCard !== null && secondCard !== null && firstCard !== secondCard) {
+    if (firstCard && secondCard && firstCard !== secondCard) {
      if (firstCard.id === secondCard.id) {
       console.log('true')
       firstCard.classList.add('sucsess')
@@ -228,7 +226,7 @@ function finish() {
  const fTime = document.querySelector('.total_time')
  fTime!.textContent = `${timeBlock!.textContent}`
  const restart2 = document.querySelector('.button_restart2')
- if (win === true) {
+ if (win) {
   title!.textContent = 'Вы выиграли!'
   titleIcon!.classList.remove('title_icon_lose')
   titleIcon!.classList.add('title_icon_win')
