@@ -10,21 +10,21 @@ const restart = document.querySelector('.button_restart')
 const cardsAll = document.querySelectorAll('.card')
 const boxLevel = document.querySelector('.box_level')
 const finishBlock = document.querySelector('.finish_block')
-let firstCard = null
-let secondCard = null
+let firstCard: Element | null = null
+let secondCard: Element | null = null
 let clicked = false
 let levelCheck = 0
 let win = false
 
-levelID.addEventListener('click', function (event) {
- let lvlIDpick =
-  [...document.querySelectorAll('.level')].indexOf(event.target) + 1
+levelID!.addEventListener('click', function (event) {
+ let pick: any = event.target
+ let lvlIDpick = [...document.querySelectorAll('.level')].indexOf(pick) + 1
  levelCheck = lvlIDpick
 })
 
-finishBlock.classList.add('finish_block_hidden')
-gameBlock.classList.add('game_hidden')
-cardBlock.classList.add('card_block_hidden')
+finishBlock!.classList.add('finish_block_hidden')
+gameBlock!.classList.add('game_hidden')
+cardBlock!.classList.add('card_block_hidden')
 
 const cards = [
  'card_a1',
@@ -65,7 +65,7 @@ const cards = [
  'card6_4',
 ]
 
-start.addEventListener('click', () => {
+start!.addEventListener('click', () => {
  if (levelCheck === 0) {
   console.log('уровень не выбран')
  }
@@ -93,9 +93,9 @@ start.addEventListener('click', () => {
 })
 
 const timeBlock = document.querySelector('.timer_block')
-var sec = 0
-var min = 0
-var t
+let sec = 0
+let min = 0
+let t: any
 
 function tick() {
  sec++
@@ -109,7 +109,7 @@ function tick() {
 }
 function add() {
  tick()
- timeBlock.textContent =
+ timeBlock!.textContent =
   (min > 9 ? min : '0' + min) + ':' + (sec > 9 ? sec : '0' + sec)
  timer()
 }
@@ -119,8 +119,8 @@ function timer() {
 
 function res() {
  clearInterval(t)
- cardBlock.textContent = ''
- timeBlock.textContent = '00:00'
+ cardBlock!.textContent = ''
+ timeBlock!.textContent = '00:00'
  sec = 0
  min = 0
  firstCard = null
@@ -129,21 +129,21 @@ function res() {
  cardsAll.forEach((card) => {
   card.classList.remove('back')
  })
- startblock.classList.remove('app_hidden')
- gameBlock.classList.add('game_hidden')
- cardBlock.classList.add('card_block_hidden')
- gameBlock.classList.remove('opacity_finish')
- cardBlock.classList.remove('opacity_finish')
- finishBlock.classList.add('finish_block_hidden')
- boxLevel.classList.remove('box_level_hidden')
+ startblock!.classList.remove('app_hidden')
+ gameBlock!.classList.add('game_hidden')
+ cardBlock!.classList.add('card_block_hidden')
+ gameBlock!.classList.remove('opacity_finish')
+ cardBlock!.classList.remove('opacity_finish')
+ finishBlock!.classList.add('finish_block_hidden')
+ boxLevel!.classList.remove('box_level_hidden')
 }
 
-restart.addEventListener('click', () => {
+restart!.addEventListener('click', () => {
  res()
 })
 
-function generateCard(cardI) {
- let cardNewArr = []
+function generateCard(cardI: number) {
+ let cardNewArr: any[] = []
  for (let i = 0; i < cardI; i++) {
   let randI = Math.floor(Math.random() * cards.length)
   let pickCard = cards[randI]
@@ -154,7 +154,7 @@ function generateCard(cardI) {
  return cardNewArr
 }
 
-function createdCards(test) {
+function createdCards(test: any[]) {
  test.sort(() => Math.random() - 0.5)
  console.log(test)
  for (let tests of test) {
@@ -162,7 +162,7 @@ function createdCards(test) {
   cardII.classList.add('card')
   cardII.classList.add(tests)
   cardII.id = tests
-  cardBlock.appendChild(cardII)
+  cardBlock!.appendChild(cardII)
   setTimeout(() => {
    cardII.classList.add('back')
    clicked = true
@@ -171,7 +171,7 @@ function createdCards(test) {
 }
 
 function cardCheck() {
- let complireCardArr = []
+ let complireCardArr: any[] = []
  const cards2 = document.querySelectorAll('.card')
  cards2.forEach((card) =>
   card.addEventListener('click', () => {
@@ -219,33 +219,33 @@ function cardCheck() {
 
 function finish() {
  clearInterval(t)
- startblock.classList.remove('app_hidden')
- finishBlock.classList.remove('finish_block_hidden')
- gameBlock.classList.add('opacity_finish')
- cardBlock.classList.add('opacity_finish')
+ startblock!.classList.remove('app_hidden')
+ finishBlock!.classList.remove('finish_block_hidden')
+ gameBlock!.classList.add('opacity_finish')
+ cardBlock!.classList.add('opacity_finish')
  const title = document.querySelector('.title_finish')
  const titleIcon = document.querySelector('.title_icon')
  const fTime = document.querySelector('.total_time')
- fTime.textContent = `${timeBlock.textContent}`
+ fTime!.textContent = `${timeBlock!.textContent}`
  const restart2 = document.querySelector('.button_restart2')
  if (win === true) {
-  title.textContent = 'Вы выиграли!'
-  titleIcon.classList.remove('title_icon_lose')
-  titleIcon.classList.add('title_icon_win')
+  title!.textContent = 'Вы выиграли!'
+  titleIcon!.classList.remove('title_icon_lose')
+  titleIcon!.classList.add('title_icon_win')
  } else {
-  title.textContent = 'Вы проиграли!'
-  titleIcon.classList.remove('title_icon_win')
-  titleIcon.classList.add('title_icon_lose')
+  title!.textContent = 'Вы проиграли!'
+  titleIcon!.classList.remove('title_icon_win')
+  titleIcon!.classList.add('title_icon_lose')
  }
- restart2.addEventListener('click', () => {
+ restart2!.addEventListener('click', () => {
   res()
  })
 }
 
 function hiddenBlocks() {
- cardBlock.textContent = ''
- startblock.classList.add('app_hidden')
- boxLevel.classList.add('box_level_hidden')
- gameBlock.classList.remove('game_hidden')
- cardBlock.classList.remove('card_block_hidden')
+ cardBlock!.textContent = ''
+ startblock!.classList.add('app_hidden')
+ boxLevel!.classList.add('box_level_hidden')
+ gameBlock!.classList.remove('game_hidden')
+ cardBlock!.classList.remove('card_block_hidden')
 }
