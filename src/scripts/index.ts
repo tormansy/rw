@@ -17,7 +17,7 @@ let levelCheck = 0
 let win = false
 
 levelID!.addEventListener('click', function (event) {
- let pick: any = event.target
+ let pick = event.target as HTMLElement
  let lvlIDpick = [...document.querySelectorAll('.level')].indexOf(pick) + 1
  levelCheck = lvlIDpick
 })
@@ -95,7 +95,7 @@ start!.addEventListener('click', () => {
 const timeBlock = document.querySelector('.timer_block')
 let sec = 0
 let min = 0
-let t: any
+let t: ReturnType<typeof setTimeout>
 
 function tick() {
  sec++
@@ -143,7 +143,7 @@ restart!.addEventListener('click', () => {
 })
 
 function generateCard(cardI: number) {
- let cardNewArr: any[] = []
+ let cardNewArr: string[] = []
  for (let i = 0; i < cardI; i++) {
   let randI = Math.floor(Math.random() * cards.length)
   let pickCard = cards[randI]
@@ -154,7 +154,7 @@ function generateCard(cardI: number) {
  return cardNewArr
 }
 
-function createdCards(test: any[]) {
+function createdCards(test: string[]) {
  test.sort(() => Math.random() - 0.5)
  console.log(test)
  for (let tests of test) {
@@ -171,7 +171,7 @@ function createdCards(test: any[]) {
 }
 
 function cardCheck() {
- let complireCardArr: any[] = []
+ let complireCardArr: Element[] = []
  const cards2 = document.querySelectorAll('.card')
  cards2.forEach((card) =>
   card.addEventListener('click', () => {
@@ -181,7 +181,7 @@ function cardCheck() {
     if (firstCard === null) {
      firstCard = card
     } else if (card !== firstCard) {
-      secondCard = card
+     secondCard = card
     }
     if (firstCard && secondCard && firstCard !== secondCard) {
      if (firstCard.id === secondCard.id) {
