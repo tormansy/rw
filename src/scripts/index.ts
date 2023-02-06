@@ -195,8 +195,6 @@ function cardCheck() {
        secondCard = null
       }
      } else {
-      alert('Вы проиграли')
-      console.log('lose')
       clicked = false
       win = false
       finish()
@@ -204,8 +202,6 @@ function cardCheck() {
     }
    }
    if (cards2.length === complireCardArr.length) {
-    alert('Вы выиграли')
-    console.log('win')
     clicked = false
     win = true
     finish()
