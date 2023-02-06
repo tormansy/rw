@@ -95,7 +95,7 @@ start!.addEventListener('click', () => {
 const timeBlock = document.querySelector('.timer_block')
 let sec = 0
 let min = 0
-let t: any
+let t: ReturnType<typeof setTimeout>
 
 function tick() {
  sec++
@@ -181,7 +181,7 @@ function cardCheck() {
     if (firstCard === null) {
      firstCard = card
     } else if (card !== firstCard) {
-      secondCard = card
+     secondCard = card
     }
     if (firstCard && secondCard && firstCard !== secondCard) {
      if (firstCard.id === secondCard.id) {
