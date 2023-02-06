@@ -71,22 +71,22 @@ start!.addEventListener('click', () => {
  }
  if (levelCheck === 1) {
   hiddenBlocks()
-  let test = generateCard(3)
-  createdCards(test)
+  let randomCardArr = generateCard(3)
+  createdCards(randomCardArr)
   cardCheck()
   timer()
  }
  if (levelCheck === 2) {
   hiddenBlocks()
-  let test = generateCard(6)
-  createdCards(test)
+  let randomCardArr = generateCard(6)
+  createdCards(randomCardArr)
   cardCheck()
   timer()
  }
  if (levelCheck === 3) {
   hiddenBlocks()
-  let test = generateCard(9)
-  createdCards(test)
+  let randomCardArr = generateCard(9)
+  createdCards(randomCardArr)
   cardCheck()
   timer()
  }
@@ -154,14 +154,14 @@ function generateCard(cardI: number) {
  return cardNewArr
 }
 
-function createdCards(test: string[]) {
- test.sort(() => Math.random() - 0.5)
- console.log(test)
- for (let tests of test) {
+function createdCards(randomCardArr: string[]) {
+  randomCardArr.sort(() => Math.random() - 0.5)
+ console.log(randomCardArr)
+ for (let randomCard of randomCardArr) {
   let cardII = document.createElement('div')
   cardII.classList.add('card')
-  cardII.classList.add(tests)
-  cardII.id = tests
+  cardII.classList.add(randomCard)
+  cardII.id = randomCard
   cardBlock!.appendChild(cardII)
   setTimeout(() => {
    cardII.classList.add('back')
